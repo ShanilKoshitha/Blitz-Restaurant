@@ -1,5 +1,6 @@
 using AutoMapper;
 using Blitz.Services.ProductAPI.DbContexts;
+using Blitz.Services.ProductAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,7 @@ namespace Blitz.Services.ProductAPI
 
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddControllers();

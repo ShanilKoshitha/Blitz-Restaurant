@@ -736,30 +736,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shani\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/shanilkoshitha/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shani\\OneDrive\\Documents\\Projects\\DotNet\\Blitz-Restaurant\\Blitz\\Blitz.Web\\Blitz.Web.csproj",
+      "projectUniqueName": "/Users/shanilkoshitha/Projects/dotNet/Blitz-Restaurant/Blitz.Web/Blitz.Web.csproj",
       "projectName": "Blitz.Web",
-      "projectPath": "C:\\Users\\Shani\\OneDrive\\Documents\\Projects\\DotNet\\Blitz-Restaurant\\Blitz\\Blitz.Web\\Blitz.Web.csproj",
-      "packagesPath": "C:\\Users\\Shani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shani\\OneDrive\\Documents\\Projects\\DotNet\\Blitz-Restaurant\\Blitz\\Blitz.Web\\obj\\",
+      "projectPath": "/Users/shanilkoshitha/Projects/dotNet/Blitz-Restaurant/Blitz.Web/Blitz.Web.csproj",
+      "packagesPath": "/Users/shanilkoshitha/.nuget/packages/",
+      "outputPath": "/Users/shanilkoshitha/Projects/dotNet/Blitz-Restaurant/Blitz.Web/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Shani\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/shanilkoshitha/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -801,7 +795,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100-preview.6.21355.2/RuntimeIdentifierGraph.json"
       }
     }
   }

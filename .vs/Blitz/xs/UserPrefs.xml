@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{2F7E164A-2196-4F6C-80A1-797C9F226668}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Blitz.Services.ProductAPI/Startup.cs">
+    <Files>
+      <File FileName="Blitz.Services.ProductAPI/Repository/ProductRepository.cs" Line="25" Column="1" />
+      <File FileName="Blitz.Services.ProductAPI/Startup.cs" Line="37" Column="22" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Blitz" expanded="True">
+            <Node name="Services" expanded="True">
+              <Node name="Blitz.Services.ProductAPI" expanded="True">
+                <Node name="Repository" expanded="True" />
+                <Node name="Startup.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.FrontEnd.Blitz.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
