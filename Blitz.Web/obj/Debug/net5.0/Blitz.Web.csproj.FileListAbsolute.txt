@@ -355,3 +355,4 @@ C:\Users\Shani\OneDrive\Documents\Projects\DotNet\Blitz-Restaurant\Blitz\Blitz.W
 C:\Users\Shani\OneDrive\Documents\Projects\DotNet\Blitz-Restaurant\Blitz\Blitz.Web\obj\Debug\net5.0\ref\Blitz.Web.dll
 C:\Users\Shani\OneDrive\Documents\Projects\DotNet\Blitz-Restaurant\Blitz\Blitz.Web\obj\Debug\net5.0\Blitz.Web.pdb
 C:\Users\Shani\OneDrive\Documents\Projects\DotNet\Blitz-Restaurant\Blitz\Blitz.Web\obj\Debug\net5.0\Blitz.Web.genruntimeconfig.cache
+C:\Users\Shani\OneDrive\Documents\Projects\DotNet\Blitz-Restaurant\Blitz\Blitz.Web\bin\Debug\net5.0\Newtonsoft.Json.dll
