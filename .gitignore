@@ -499,3 +499,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
+.vs/Blitz/DesignTimeBuild/.dtbcache.v2
+.vs/Blitz/DesignTimeBuild/.dtbcache.v2
+.vs/Blitz/v16/.suo
