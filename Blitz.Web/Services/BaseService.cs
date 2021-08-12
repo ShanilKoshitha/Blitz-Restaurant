@@ -76,7 +76,7 @@ namespace Blitz.Web.Services
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(true);
         }
     }
 }
