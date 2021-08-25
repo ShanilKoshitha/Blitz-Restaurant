@@ -45,8 +45,8 @@ namespace Blitz.Services.Identity
                     ClientId = "Blitz",
                     ClientSecrets = {new Secret("Secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.Code,
-                    RedirectUris = { "http://localhost:44382/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:44382/signout-callback-oidc" }, 
+                    RedirectUris = { "https://localhost:44382/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:44382/signout-callback-oidc" }, 
                     AllowedScopes = new List<String>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,

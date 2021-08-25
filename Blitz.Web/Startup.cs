@@ -1,5 +1,6 @@
 using Blitz.Web.Services;
 using Blitz.Web.Services.IServices;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,9 +27,38 @@ namespace Blitz.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<IProductService, IProductService>();
+            services.AddHttpClient<ICartService, CartService>();
+
             SD.ProductAPIBase = Configuration["ServiceUrls:ProductAPI"];
+            SD.ShoppingCartAPIBase = Configuration["ServiceUrls:ShoppingCartAPI"];
+            SD.CouponAPIBase = Configuration["ServiceUrls:CouponAPI"];
+
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<ICouponService, CouponService>();
             services.AddControllersWithViews();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
+                .AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromDays(10))
+                .AddOpenIdConnect("oidc", options =>
+                {
+                    options.Authority = Configuration["ServiceUrls:IdentityAPI"];
+                    options.GetClaimsFromUserInfoEndpoint = true;
+                    options.ClientId = "Blitz";
+                    options.ClientSecret = "Secret";
+                    options.ResponseType = "code";
+                    options.ClaimActions.MapJsonKey("role", "role", "role");
+                    options.ClaimActions.MapJsonKey("sub", "sub", "sub");
+                    options.TokenValidationParameters.NameClaimType = "name";
+                    options.TokenValidationParameters.RoleClaimType = "role";
+                    options.Scope.Add("Blitz");
+                    options.SaveTokens = true;
+                });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +78,7 @@ namespace Blitz.Web
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

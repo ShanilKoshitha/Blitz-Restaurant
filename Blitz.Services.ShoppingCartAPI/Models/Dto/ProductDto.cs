@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Blitz.Services.ProductAPI.Models.Dtos
+namespace Blitz.Services.ShoppingCartAPI.Models.Dto
 {
     public class ProductDto
     {

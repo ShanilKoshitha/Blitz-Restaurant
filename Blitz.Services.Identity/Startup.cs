@@ -1,6 +1,8 @@
 using Blitz.Services.Identity.DbContexts;
 using Blitz.Services.Identity.Initializer;
 using Blitz.Services.Identity.Models;
+using Blitz.Services.Identity.Services;
+using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -47,7 +49,7 @@ namespace Blitz.Services.Identity
               .AddAspNetIdentity<ApplicationUser>();
 
             services.AddScoped<IDbInitializer, DbInitializer>();
-
+            services.AddScoped<IProfileService, ProfileService>();
             services.AddControllersWithViews();
 
 

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Blitz.Services.ProductAPI.Models;
-using Blitz.Services.ProductAPI.Models.Dtos;
+using Blitz.Services.ProductAPI.Models.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

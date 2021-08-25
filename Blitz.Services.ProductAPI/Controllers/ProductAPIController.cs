@@ -1,5 +1,4 @@
 ﻿using Blitz.Services.ProductAPI.Models.Dto;
-using Blitz.Services.ProductAPI.Models.Dtos;
 using Blitz.Services.ProductAPI.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +20,7 @@ namespace Blitz.Services.ProductAPI.Controllers
             this._response = new ResponseDto();
         }
         [HttpGet]
+        
         public async Task<object> Get()
         {
             try
@@ -35,7 +35,6 @@ namespace Blitz.Services.ProductAPI.Controllers
             return _response;
         }
         [HttpGet]
-        [Authorize]
         [Route("{id}")]
         public async Task<object> Get(int id)
         {

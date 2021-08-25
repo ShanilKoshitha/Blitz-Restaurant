@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Blitz.Services.ProductAPI.DbContexts;
 using Blitz.Services.ProductAPI.Models;
-using Blitz.Services.ProductAPI.Models.Dtos;
+using Blitz.Services.ProductAPI.Models.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

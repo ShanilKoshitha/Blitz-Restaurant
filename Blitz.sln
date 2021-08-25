@@ -11,7 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blitz.Services.ProductAPI", "Blitz.Services.ProductAPI\Blitz.Services.ProductAPI.csproj", "{6E8F952E-1CFB-401C-BB69-A858897D1F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blitz.Services.Identity", "Blitz.Services.Identity\Blitz.Services.Identity.csproj", "{A775E65C-5060-450A-8FF8-A95542ADB3CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blitz.Services.Identity", "Blitz.Services.Identity\Blitz.Services.Identity.csproj", "{A775E65C-5060-450A-8FF8-A95542ADB3CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blitz.Services.ShoppingCartAPI", "Blitz.Services.ShoppingCartAPI\Blitz.Services.ShoppingCartAPI.csproj", "{8D97B985-2AF1-4A89-AEC7-3D464CE00093}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blitz.Services.CouponAPI", "Blitz.Services.CouponAPI\Blitz.Services.CouponAPI.csproj", "{3E9E7559-5D38-4893-BFB3-59B3DC666F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,14 @@ Global
 		{A775E65C-5060-450A-8FF8-A95542ADB3CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A775E65C-5060-450A-8FF8-A95542ADB3CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A775E65C-5060-450A-8FF8-A95542ADB3CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D97B985-2AF1-4A89-AEC7-3D464CE00093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D97B985-2AF1-4A89-AEC7-3D464CE00093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D97B985-2AF1-4A89-AEC7-3D464CE00093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D97B985-2AF1-4A89-AEC7-3D464CE00093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9E7559-5D38-4893-BFB3-59B3DC666F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9E7559-5D38-4893-BFB3-59B3DC666F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9E7559-5D38-4893-BFB3-59B3DC666F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9E7559-5D38-4893-BFB3-59B3DC666F19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +51,8 @@ Global
 		{2F7E164A-2196-4F6C-80A1-797C9F226668} = {978A18E0-6F4F-4BC7-865B-5DFFB5462D76}
 		{6E8F952E-1CFB-401C-BB69-A858897D1F72} = {FCDDCD57-5870-4DCD-BAA4-BAF0EBF17639}
 		{A775E65C-5060-450A-8FF8-A95542ADB3CB} = {FCDDCD57-5870-4DCD-BAA4-BAF0EBF17639}
+		{8D97B985-2AF1-4A89-AEC7-3D464CE00093} = {FCDDCD57-5870-4DCD-BAA4-BAF0EBF17639}
+		{3E9E7559-5D38-4893-BFB3-59B3DC666F19} = {FCDDCD57-5870-4DCD-BAA4-BAF0EBF17639}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFDEE8E6-1B55-47ED-B458-47985A01FC4D}
