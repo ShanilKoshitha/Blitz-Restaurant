@@ -39,6 +39,11 @@ namespace Blitz.Web.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> CheckOut()
+        {
+            return View(await LoadCartDtoBasedOnLoggedInUser());
+        }
 
         private async Task<CartDto> LoadCartDtoBasedOnLoggedInUser()
         {
