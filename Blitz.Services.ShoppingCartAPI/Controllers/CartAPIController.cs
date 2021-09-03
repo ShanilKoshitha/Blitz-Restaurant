@@ -1,4 +1,5 @@
-﻿using Blitz.Services.ShoppingCartAPI.Messages;
+﻿using Blitz.MessageBus;
+using Blitz.Services.ShoppingCartAPI.Messages;
 using Blitz.Services.ShoppingCartAPI.Models.Dto;
 using Blitz.Services.ShoppingCartAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,12 @@ namespace Blitz.Services.ShoppingCartAPI.Controllers
     {
         private readonly ICartRepository _cartRepository;
         protected ResponseDto _response;
-
-        public CartAPIController(ICartRepository cartRepository)
+        private readonly IMessageBus _messageBus;
+        public CartAPIController(ICartRepository cartRepository, IMessageBus messageBus)
         {
             _cartRepository = cartRepository;
             this._response = new ResponseDto();
+            _messageBus = messageBus;
         }
 
         [HttpGet("GetCart/{userId}")]
@@ -130,6 +132,7 @@ namespace Blitz.Services.ShoppingCartAPI.Controllers
                 }
                 checkoutHeader.CartDetails = cartDto.CartDetails;
                 //logic to add message to process order
+                await _messageBus.PublishMessage(checkoutHeader, "checkoutmessagetopic");
             }
             catch (Exception ex)
             {

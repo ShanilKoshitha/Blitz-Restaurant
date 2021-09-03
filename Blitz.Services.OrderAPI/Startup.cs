@@ -1,7 +1,5 @@
+using Blitz.Services.OrderAPI.DbContexts;
 using AutoMapper;
-using Blitz.MessageBus;
-using Blitz.Services.ShoppingCartAPI.DbContexts;
-using Blitz.Services.ShoppingCartAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,14 +9,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
+using Blitz.Services.OrderAPI.Repository;
 
-namespace Blitz.Services.ShoppingCartAPI
+namespace Blitz.Services.OrderAPI
 {
     public class Startup
     {
@@ -36,12 +35,14 @@ namespace Blitz.Services.ShoppingCartAPI
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
-            services.AddSingleton(mapper);
-            services.AddScoped<ICartRepository, CartRepository>();
-            services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
+            //IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+            //services.AddSingleton(mapper);
+            //services.AddScoped<ICartRepository, CartRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            optionBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            services.AddSingleton(new OrderRepository(optionBuilder.Options));
             services.AddControllers();
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
@@ -65,7 +66,7 @@ namespace Blitz.Services.ShoppingCartAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Blitz.Services.ShoppingCartAPI", Version = "v1" });
-                c.EnableAnnotations();
+                
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = @"Enter 'Bearer' [space] and your token",
@@ -102,7 +103,7 @@ namespace Blitz.Services.ShoppingCartAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Blitz.Services.ShoppingCartAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Blitz.Services.OrderAPI v1"));
             }
 
             app.UseHttpsRedirection();
