@@ -16,6 +16,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using Blitz.Services.OrderAPI.Repository;
+using Blitz.Services.OrderAPI.Messaging;
+using Blitz.Services.OrderAPI.Extension;
+using Blitz.MessageBus;
 
 namespace Blitz.Services.OrderAPI
 {
@@ -43,6 +46,8 @@ namespace Blitz.Services.OrderAPI
             var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             services.AddSingleton(new OrderRepository(optionBuilder.Options));
+            services.AddSingleton<IAzureServiceBusConsumer, AzureServiceBusConsumer>();
+            services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
             services.AddControllers();
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
@@ -116,6 +121,8 @@ namespace Blitz.Services.OrderAPI
             {
                 endpoints.MapControllers();
             });
+
+            app.UseAzureServiceBusConsumer();
         }
     }
 }

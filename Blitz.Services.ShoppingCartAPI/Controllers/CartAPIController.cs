@@ -15,13 +15,15 @@ namespace Blitz.Services.ShoppingCartAPI.Controllers
     public class CartAPIController : Controller
     {
         private readonly ICartRepository _cartRepository;
+        private readonly ICouponRepository _couponRepository;
         protected ResponseDto _response;
         private readonly IMessageBus _messageBus;
-        public CartAPIController(ICartRepository cartRepository, IMessageBus messageBus)
+        public CartAPIController(ICartRepository cartRepository, IMessageBus messageBus, ICouponRepository couponRepository)
         {
             _cartRepository = cartRepository;
             this._response = new ResponseDto();
             _messageBus = messageBus;
+            _couponRepository = couponRepository;
         }
 
         [HttpGet("GetCart/{userId}")]
@@ -130,9 +132,23 @@ namespace Blitz.Services.ShoppingCartAPI.Controllers
                 {
                     return BadRequest();
                 }
+
+                if (!string.IsNullOrEmpty(checkoutHeader.CouponCode))
+                {
+                    CouponDto coupon = await _couponRepository.GetCoupon(checkoutHeader.CouponCode);
+                    if(checkoutHeader.DiscountTotal != coupon.DiscountAmount)
+                    {
+                        _response.IsSuccess = false;
+                        _response.ErrorMessages = new List<string>() { "Coupon price has changed confirm please" };
+                        _response.DisplayMessage = "Coupon price has changed confirm please" ;
+                        return _response;
+                    }
+                }
+
                 checkoutHeader.CartDetails = cartDto.CartDetails;
                 //logic to add message to process order
-                await _messageBus.PublishMessage(checkoutHeader, "checkoutmessagetopic");
+                await _messageBus.PublishMessage(checkoutHeader, "checkoutqueue");
+                await _cartRepository.ClearCart(checkoutHeader.UserId);
             }
             catch (Exception ex)
             {

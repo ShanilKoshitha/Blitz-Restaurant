@@ -32,7 +32,7 @@ namespace Blitz.Services.ShoppingCartAPI.Repository
 
         public async Task<bool> ClearCart(string userId)
         {
-            var cartHeaderFromDb = await _db.CartHeaders.AsNoTracking()
+            var cartHeaderFromDb = await _db.CartHeaders
                  .FirstOrDefaultAsync(u => u.UserId == userId);
             
             if(cartHeaderFromDb != null)
@@ -98,6 +98,8 @@ namespace Blitz.Services.ShoppingCartAPI.Repository
                     //update the count / cart details
                     cart.CartDetails.FirstOrDefault().Product = null;
                     cart.CartDetails.FirstOrDefault().Count += cartDetailsFromDb.Count;
+                    cart.CartDetails.FirstOrDefault().CartDetailsId = cartDetailsFromDb.CartDetailsId;
+                    cart.CartDetails.FirstOrDefault().CartHeaderId = cartDetailsFromDb.CartHeaderId;
                     _db.CartDetails.Update(cart.CartDetails.FirstOrDefault());
                     await _db.SaveChangesAsync();
                 }
