@@ -11,7 +11,7 @@ namespace Blitz.MessageBus
     public class AzureServiceBusMessageBus : IMessageBus
     {
         //needs to go into the appsetting file
-        private string connectionString = "Endpoint=sb://aszdwwertaskdsler.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XfEhVqr+xSidsbCQahM1kRPS/ew4DokepnqeSI/ALqc=";
+        private string connectionString = "";
 
         public async Task PublishMessage(BaseMessage message, string topicName)
         {
